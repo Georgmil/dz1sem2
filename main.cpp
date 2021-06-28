@@ -3,12 +3,12 @@
 #include <graphics.h>
 #include <math.h>
 void middel(float a1x,float a1y, float a2x, float a2y,int value);
-void dijkstra(int matrica[20][20],int len,int start,float vershina[20][20]);
+void dijkstra(int matrica[20][20],int len,float vershina[20][20]);
 
 int main(){
 
     float b, angle;
-    int a,start=1,matrica[20][20];
+    int a,matrica[20][20];
     printf("Enter how many tops do you want:\n");
     scanf("%d",&a);
     b=360/a;
@@ -66,7 +66,7 @@ int main(){
     }
     outtext("Nazhimite na ekran i zatem lubuju klavishu, chtobi zaputit algoritm dejikstra");
     getch();
-    dijkstra(matrica,a,start,vershina);
+    dijkstra(matrica,a,vershina);
     getch();
     cleardevice();
     closegraph();
@@ -86,12 +86,12 @@ void middel(float a1x,float a1y, float a2x, float a2y,int value){
     sprintf(str1,"%d",value);
     outtextxy(pointx,pointy,str1);
 }
-void dijkstra(int matrica[20][20],int len,int start,float vershina[20][20]){
+void dijkstra(int matrica[20][20],int len,float vershina[20][20]){
     int cost[20][20];
     int dist[20];
     int pred[20];
     int visited[20];
-    int nextnode,shet,mindst,j,i;
+    int nextnode,shet,mindst,j,i,start=1;
 
     for(i=1;i<=len;i++){
         for(j=1;j<=len;j++){
